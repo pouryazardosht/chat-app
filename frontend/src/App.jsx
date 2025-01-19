@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar"
 import { Navigate, Route, Routes } from 'react-router'
 import { Loader } from 'lucide-react'
-
+import { Toaster } from "react-hot-toast"
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
@@ -17,7 +17,6 @@ function App() {
     checkAuth()
   }, [checkAuth]);
 
-  console.log(authUser);
 
   if (isCheckingAuth && !authUser) {
     return (
@@ -38,6 +37,7 @@ function App() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />
       </Routes>
+      <Toaster />
     </div>
   )
 }
