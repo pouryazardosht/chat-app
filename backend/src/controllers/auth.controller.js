@@ -119,3 +119,15 @@ export const checkAuth = (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// export const deleteAccount = async (req, res) => {
+//   try {
+//     const userID = req.user._id;
+//     const user = User.findById({ userID });
+//     if (!user) return res.status(401).json({ message: "user not found" });
+//     await user.deleteOne({ _id: userID });
+//     res.status(202).json({ message: "user deleted" });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
